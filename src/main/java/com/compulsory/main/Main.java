@@ -2,6 +2,7 @@ package com.compulsory.main;
 
 import com.compulsory.entity.Genre;
 import com.compulsory.entity.Movie;
+import com.compulsory.repository.ChartEntityMethods;
 import com.compulsory.repository.GenresEntityMethods;
 import com.compulsory.repository.MoviesEntityMethods;
 
@@ -29,6 +30,7 @@ public class Main {
 
         genresEntityMethods.findById(genresEntity);
         genresEntityMethods.findByName(genresEntity);
+
     }
 }
 

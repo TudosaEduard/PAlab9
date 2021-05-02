@@ -3,6 +3,7 @@ package com.compulsory.entity;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table(name = "movies")
@@ -64,5 +65,19 @@ public class Movie {
 
     public void setScore(int score) {
         this.score = score;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Movie that = (Movie) o;
+        return id == that.id && duration == that.duration && score == that.score &&
+                Objects.equals(title, that.title) && Objects.equals(releaseDate, that.releaseDate);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, title, releaseDate, duration, score);
     }
 }
